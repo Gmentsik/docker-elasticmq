@@ -7,4 +7,6 @@ EXPOSE 9324
 CMD ["java", "-jar", "-Dconfig.file=/elasticmq/custom.conf", "/elasticmq/server.jar"]
 COPY custom.conf /elasticmq/custom.conf
 
+RUN apk --update add curl
+
 ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-${ELASTICMQ_VERSION}.jar /elasticmq/server.jar
